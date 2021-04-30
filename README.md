@@ -40,12 +40,13 @@ There are some flaws visible at this procedure. At a high level it describes a c
 * during the login process, no button is selected and pushed. The enter key is used instead.
 * The step library could be organized better.
 * Security is out of scope
-* 2 more scenarios are added but disabled as it was not required.
+* Some more scenarios are added but disabled as it was not required.
 * gender is out of scope
 * no extra logout step implemented
 * No failure case included
 * the pom file from maven is not that maintained yet. It should be updated.
-* firefox browser called. No other browser tested. This could be improved. In real live it is not enough to test only once browser.  The most important part is to test the render engine.
+* firefox browser called. No other browser operational at the moment. 
+  This could be improved. In real live it is not enough to test only once browser.  The most important part is to test the render engine. Browserstack or selenium grid is one option.
 * Scenarios for expensive and cheapest could be used in one file. Shared annotation could be used. (this is intentionally not done now)
 * Test-data inside the scenarios and the scenario itself is not separated in a clean way. This might be an option dependent on the situation. The criteria whether this has to be done are company and domain related.
 * executing mvn at the command-line will result in an ERROR Warning message which has currently not a negative impact. It is highly recommended investigating in detail in order to solve the root cause. First investigations lead to the JAVA Version. One option to check if the assumption is true is to use the toolchain plugin and enforce Java 8 
@@ -55,11 +56,24 @@ There are some flaws visible at this procedure. At a high level it describes a c
 * UI tests are important, readable UI tests are more important.
 
 # execution
-## Option 1
+## Option 1 (without browser spec)
 ```
 mvn verify
 ```
 
 
+## Option 2 (with browser)
+```
+mvn verify -Dcontext=firefox -Dwebdriver.driver=firefox
+```
+
+## Option 3 (predefined call)
+* TBD
+
+
 # Git
 * ``` https://github.com/ebelsbergerp/ui-test-demo ```
+
+
+# Final remarks
+Do not use this explorative code in any kind of production unless you know exactly what you what you want to do.
