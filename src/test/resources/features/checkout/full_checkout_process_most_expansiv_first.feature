@@ -1,5 +1,6 @@
 Feature: Saucedemo full checkout process (most expensive ones)
 
+  @ignore
   Scenario: Full checkout process of the most expensive product
     Given Erika is visiting the saucedemo login page
     When she logs in with 'standard_user' and 'secret_sauce'
